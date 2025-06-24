@@ -1,0 +1,76 @@
+:root {
+  /* Cores Base - Tema Roxo/Laranja */
+  --primary: #8436EC;
+  --primary-rgba: rgba(157, 122, 192, 0.3);
+  --primary-light: #9c4dcc;
+  --secondary: #ff9e40;
+  --secondary-rgba: rgba(248, 182, 132, 0.5);
+  --secondary-light: #ff9e40;
+  --accent: #ffab40;
+  --background: #ffffff;
+  --background-rgba: rgba(255, 255, 255, 0.4);
+  --card-bg: #ffffff;
+  --card-bg-rgba: rgba(255, 255, 255, 0.3); 
+  --text: #2e2e2e;  
+  --text-white: #ffffff;
+  --text-light: #414141;
+  --border: #e1d5e7;     
+  --success: #4caf50;      
+  --warning: #ff9800;       
+  --danger: #f44336;        
+  --info: #2196f3;          
+
+  /* Cores para gráficos */
+  --chart-1: #8436EC;       
+  --chart-2: #ff6d00;       
+  --chart-3: #9c4dcc;       
+  --chart-4: #ff9e40;       
+
+  /* Botões */
+  --button-primary: rgba(255, 255, 255, 0.7);
+  --button-menu: #ffffff;
+  --button-primary-hover: #4a148c;
+  --button-secondary: #ff6d00;
+  --button-secondary-hover: #e65100;
+
+  /* Tabelas */
+  --table-header: #f3e5f5;
+  --table-row-even: #ffffff;
+  --table-row-odd: #faf5ff;
+}
+
+[data-theme="dark"] {
+  --primary: #9c4dcc;
+  --primary-rgba: rgba(95,0,191,0.5);
+  --primary-light: #ba68c8;
+  --secondary: #e6741d;
+  --secondary-light: #ffb74d;
+  --accent: #ffab40;
+  --background: #1e1e1e;
+  --background-rgba: rgba(0, 0, 0, 0.3);
+  --card-bg: #1e1e1e;
+  --card-bg-rgba: rgba(0, 0, 0, 0.1); 
+  --text: #f5f5f5;
+  --text-white: #1e1e1e;
+  --text-light: #5c5c5c;
+  --border: #333;
+  --success: #81c784;
+  --warning: #ffb74d;
+  --danger: #e57373;
+  --info: #64b5f6;
+
+  --chart-1: #9c4dcc;
+  --chart-2: #ff9e40;
+  --chart-3: #ba68c8;
+  --chart-4: #ffb74d;
+
+  --button-primary: #8436EC;
+  --button-menu: #ffffff;
+  --button-primary-hover: #7b1fa2;
+  --button-secondary: #ff9e40;
+  --button-secondary-hover: #ff6d00;
+
+  --table-header: #2d2d2d;
+  --table-row-even: #1e1e1e;
+  --table-row-odd: #252525;
+}

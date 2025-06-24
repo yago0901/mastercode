@@ -1,0 +1,25 @@
+@import "tailwindcss";
+/* Reset de CSS Global */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html, body {
+  width: 100vw;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* remove o fundo da barra */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #8436EC !important;
+  border-radius: 6px;
+}
