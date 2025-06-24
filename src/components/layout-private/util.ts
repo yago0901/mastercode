@@ -1,8 +1,7 @@
 import { IMenu } from './types';
 import {
   faTachometerAlt, 
-  faReceipt,        
-  faCarrot,          
+  faBookOpen,         
 } from '@fortawesome/free-solid-svg-icons';
 
 export const getMenu = (): IMenu[] => [
@@ -14,11 +13,6 @@ export const getMenu = (): IMenu[] => [
   {
     title: 'Cursos',
     href: '/courses',
-    icon: faReceipt
-  },
-  {
-    title: 'Vídeos',
-    href: '/videos',
-    icon: faCarrot
+    icon: faBookOpen
   }
 ];
