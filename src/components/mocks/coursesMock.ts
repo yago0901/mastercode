@@ -5,98 +5,143 @@ export interface IVideo {
   description: string;
 }
 
-export type CourseType = "frontend" | "backend" | "fullstack" | "mobile" | "devops";
+export type CourseType =
+  | "frontend"
+  | "backend"
+  | "fullstack"
+  | "mobile"
+  | "devops";
 
 export interface ICourse {
-  id: string;
+  id: number;
   title: string;
   description: string;
-  rating: number; // de 0 a 5
+  rating: number; // 0 a 5
   type: CourseType;
   videos: IVideo[];
 }
 
 export const coursesMock: ICourse[] = [
   {
-    id: "c1",
-    title: "Curso de React Básico",
-    description: "Aprenda os fundamentos do React com exemplos práticos.",
-    rating: 4.5,
+    id: 1,
+    title: "Curso de React com YouTube",
+    description: "Fundamentos do React com vídeos do YouTube.",
+    rating: 5,
     type: "frontend",
     videos: [
       {
-        id: "v1",
-        name: "Introdução ao React",
-        url: "https://videos.com/react/intro",
-        description: "O que é React e por que usar?"
+        id: "yt1",
+        name: "React em 100 segundos",
+        url: "https://www.youtube.com/watch?v=Tn6-PIqc4UM",
+        description: "Resumo rápido do React JS.",
       },
       {
-        id: "v2",
-        name: "Componentes e Props",
-        url: "https://videos.com/react/componentes",
-        description: "Como criar componentes reutilizáveis."
+        id: "yt2",
+        name: "Componentes React",
+        url: "https://www.youtube.com/watch?v=SqcY0GlETPk",
+        description: "Criando componentes reutilizáveis no React.",
       },
       {
-        id: "v3",
-        name: "Hooks e Estado",
-        url: "https://videos.com/react/hooks",
-        description: "Entenda useState, useEffect e outros hooks."
-      }
-    ]
+        id: "yt3",
+        name: "useEffect no React",
+        url: "https://www.youtube.com/watch?v=0ZJgIjIuY7U",
+        description: "Entendendo o hook useEffect.",
+      },
+    ],
   },
   {
-    id: "c2",
-    title: "Curso de JavaScript Avançado",
-    description: "Aprofunde seus conhecimentos em JavaScript moderno.",
-    rating: 4.8,
+    id: 2,
+    title: "Curso de JavaScript com YouTube",
+    description: "Aprofundamento em JavaScript moderno com vídeos do YouTube.",
+    rating: 4,
     type: "fullstack",
     videos: [
       {
-        id: "v4",
-        name: "Closures e Escopo",
-        url: "https://videos.com/js/closures",
-        description: "Compreenda como o escopo funciona em JS."
+        id: "yt4",
+        name: "JavaScript para Iniciantes",
+        url: "https://www.youtube.com/watch?v=PkZNo7MFNFg",
+        description: "Curso completo de JS por freeCodeCamp.",
       },
       {
-        id: "v5",
-        name: "Programação Assíncrona",
-        url: "https://videos.com/js/async",
-        description: "Callbacks, Promises e async/await na prática."
+        id: "yt5",
+        name: "Closures em JavaScript",
+        url: "https://www.youtube.com/watch?v=CQqwU2Ixu-U",
+        description: "Entendendo closures na prática.",
       },
       {
-        id: "v6",
-        name: "Manipulação de DOM",
-        url: "https://videos.com/js/dom",
-        description: "Aprenda a acessar e alterar o DOM com JS."
-      }
-    ]
+        id: "yt6",
+        name: "Promises e Async/Await",
+        url: "https://www.youtube.com/watch?v=PoRJizFvM7s",
+        description: "Programação assíncrona moderna com JS.",
+      },
+      {
+        id: "yt7",
+        name: "Promises e Async/Await",
+        url: "https://www.youtube.com/watch?v=PoRJizFvM7s",
+        description: "Programação assíncrona moderna com JS.",
+      },
+      {
+        id: "yt8",
+        name: "Promises e Async/Await",
+        url: "https://www.youtube.com/watch?v=PoRJizFvM7s",
+        description: "Programação assíncrona moderna com JS.",
+      },
+      {
+        id: "yt9",
+        name: "Promises e Async/Await",
+        url: "https://www.youtube.com/watch?v=PoRJizFvM7s",
+        description: "Programação assíncrona moderna com JS.",
+      },
+    ],
   },
   {
-    id: "c3",
-    title: "Curso de TypeScript",
-    description: "Domine os tipos e recursos do TypeScript.",
-    rating: 4.2,
+    id: 3,
+    title: "Curso de TypeScript com YouTube",
+    description: "Domine TypeScript com ajuda de vídeos do YouTube.",
+    rating: 3,
     type: "backend",
     videos: [
       {
-        id: "v7",
-        name: "Configuração e Tipos Básicos",
-        url: "https://videos.com/ts/setup",
-        description: "Comece um projeto com TS e entenda os tipos primitivos."
+        id: "yt7",
+        name: "Introdução ao TypeScript",
+        url: "https://www.youtube.com/watch?v=BwuLxPH8IDs",
+        description: "Curso completo de introdução ao TS.",
       },
       {
-        id: "v8",
-        name: "Interfaces e Tipos Avançados",
-        url: "https://videos.com/ts/interfaces",
-        description: "Use interfaces, tipos genéricos e union types."
+        id: "yt8",
+        name: "Interfaces e Tipagem",
+        url: "https://www.youtube.com/watch?v=Z5iWr6Srsj8",
+        description: "Como tipar corretamente com TypeScript.",
       },
       {
-        id: "v9",
-        name: "Integrando com React",
-        url: "https://videos.com/ts/react",
-        description: "Como usar TypeScript com projetos React."
-      }
-    ]
-  }
+        id: "yt9",
+        name: "TypeScript com React",
+        url: "https://www.youtube.com/watch?v=jrKcJxF0lAU",
+        description: "React com TypeScript moderno.",
+      },
+    ],
+  },
+  ...Array.from({ length: 20 }, (_, i) => ({
+    id: i + 4,
+    title: `Curso YouTube Extra ${i + 4}`,
+    description: "Curso gerado com vídeos do YouTube.",
+    rating: (i % 5) + 1,
+    type: ["frontend", "backend", "fullstack", "mobile", "devops"][
+      i % 5
+    ] as CourseType,
+    videos: [
+      {
+        id: `ytx${i + 10}`,
+        name: "Vídeo YouTube 1",
+        url: "https://www.youtube.com/watch?v=Ke90Tje7VS0",
+        description: "Curso oficial do React - parte 1.",
+      },
+      {
+        id: `ytx${i + 11}`,
+        name: "Vídeo YouTube 2",
+        url: "https://www.youtube.com/watch?v=Oe421EPjeBE",
+        description: "Curso oficial do React - parte 2.",
+      },
+    ],
+  })),
 ];
-
