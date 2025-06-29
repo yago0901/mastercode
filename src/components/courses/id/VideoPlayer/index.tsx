@@ -22,27 +22,35 @@ export default function VideoPlayer({ video }: { video: IVideo | null }) {
       </div>
     );
   }
+
   const onLoad = () => setIsLoading(false);
 
   return (
     <div className="w-full h-full relative">
-      {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
-          <p className="text-white">Carregando vídeo...</p>
-        </div>
-      )}
-
       {isYouTubeUrl(video.url) ? (
         <iframe
           className="w-full h-full"
-          src={`https://www.youtube.com/embed/${extractYouTubeId(video.url)}?autoplay=1`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          src={`https://www.youtube.com/embed/${extractYouTubeId(video.url)}?autoplay=0&controls=1&modestbranding=1`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
           allowFullScreen
           onLoad={onLoad}
+          title="YouTube video player"
+          frameBorder="0"
         />
       ) : (
-        <div className="w-full aspect-video bg-black rounded overflow-hidden">
-          <video controls autoPlay src={video.url} className="w-full h-full object-contain" onLoadedData={onLoad} />
+        <div className="absolute inset-0 bg-black/80 z-10">
+          <video 
+            controls 
+            autoPlay 
+            src={video.url} 
+            className="w-full h-full object-contain" 
+            onLoadedData={onLoad} 
+          />
+        </div>
+      )}
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
+          <p className="text-white">Carregando vídeo...</p>
         </div>
       )}
     </div>
