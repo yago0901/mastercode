@@ -48,7 +48,7 @@ export const Aside = ({
         <div className="fixed top-0 left-0 w-[40%] h-full bg-[var(--background)] shadow-lg flex flex-col items-center pt-10 z-40 md:hidden transition-transform">
           <div className="mb-8">
             <Image
-              src="/image/assinalanches-logo.png"
+              src="/image/logo.png"
               alt="EasyAgent logo"
               width={75}
               height={25}
@@ -115,7 +115,7 @@ export const Aside = ({
         </div>
         <div className="relative w-[150px] h-[50px] overflow-hidden transition-all duration-300 ease-in-out mt-16">
           <Image
-            src="/image/assinalanches-logoEx.png"
+            src="/image/logo.png"
             alt="Logo expandido"
             fill
             className={`object-contain transition-opacity duration-300 ease-in-out ${
@@ -124,7 +124,7 @@ export const Aside = ({
             priority
           />
           <Image
-            src="/image/assinalanches-logo.png"
+            src="/image/logo.png"
             alt="Logo compacto"
             fill
             className={`object-contain transition-opacity duration-300 ease-in-out ${
