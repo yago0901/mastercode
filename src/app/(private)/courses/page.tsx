@@ -1,20 +1,39 @@
 "use client";
 
 import { useState } from "react";
-import { coursesMock } from "@/components/mocks/coursesMock";
 import SearchBar from "@/components/courses/SearchBar";
 import CourseCard from "@/components/courses/CourseCard";
 import Pagination from "@/components/ui/Pagination";
-import { filterCourses, getTotalPages, paginateCourses, perPage } from './util';
-import { useCourseRatings } from '@/hooks/useCourseRatings';
+import { filterCourses, getTotalPages, paginateCourses, perPage } from "./util";
+import { useCourseRatings } from "@/hooks/useCourseRatings";
+import { useQuery } from "@tanstack/react-query";
+import { getCourses } from "@/services/api/couseApi";
+import CourseTypeFilter from "@/components/courses/CourseTypeFilter";
+import { CourseType } from '@/components/mocks/coursesMock';
 
 export default function CoursesPage() {
   const [filter, setFilter] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-
   const { ratings, handleRating } = useCourseRatings();
+  const [selectedType, setSelectedType] = useState<CourseType | "all">("all");
 
-  const filteredCourses = filterCourses(coursesMock, filter);
+  const {
+    data: courses,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["courses"],
+    queryFn: getCourses,
+  });
+
+  if (isLoading) return <div>Carregando cursos...</div>;
+  if (isError || !courses) return <div>Erro ao carregar cursos</div>;
+
+  const filteredCourses = filterCourses(
+    courses.filter((c) => selectedType === "all" || c.type === selectedType),
+    filter
+  );
+
   const paginatedCourses = paginateCourses(
     filteredCourses,
     currentPage,
@@ -26,6 +45,13 @@ export default function CoursesPage() {
     <div className="h-full w-full text-[var(--text)] bg-[rgba(95,0,191,0.1)] p-4">
       <div className="h-[90%]">
         <div className="w-full md:w-4/4 mb-6 flex justify-end items-center gap-4">
+          <CourseTypeFilter
+            value={selectedType}
+            onChange={(value) => {
+              setSelectedType(value);
+              setCurrentPage(1);
+            }}
+          />
           <SearchBar
             value={filter}
             onChange={(value) => {

@@ -3,20 +3,8 @@ import { faStar as fullStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
 import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
+import { Props } from './tipes';
 
-interface Course {
-  id: number;
-  title: string;
-  type: string;
-  description: string;
-  rating: number;
-}
-
-interface Props {
-  course: Course;
-  currentRating: number;
-  onRate: (stars: number) => void;
-}
 
 export default function CourseCard({ course, currentRating, onRate }: Props) {
   const router = useRouter();

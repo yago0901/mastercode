@@ -1,11 +1,11 @@
 'use client'
 
-import { ISelectedMenu } from '@/components/layout-private/types';
-import { getMenu } from '@/components/layout-private/util';
+import { ISelectedMenu } from '@/components/layout-private/MenuItem/types';
+import { getMenu } from '@/components/layout-private/MenuItem/util';
 import { useState, useMemo } from 'react';
 import { usePathname } from 'next/navigation';
 import Header from '@/components/layout-private/Header';
-import { Aside } from '@/components/layout-private/Aside/Aside';
+import { Aside } from '@/components/layout-private/Aside';
 
 export default function PublicLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 

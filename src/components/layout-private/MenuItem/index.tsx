@@ -1,7 +1,7 @@
 'use client';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ISelectedMenu, MenuItemProps } from '@/components/layout-private/types';
+import { ISelectedMenu, MenuItemProps } from '@/components/layout-private/MenuItem/types';
 import Link from 'next/link';
 
 export const MenuItem = ({

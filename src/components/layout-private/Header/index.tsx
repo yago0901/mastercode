@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
-import { ISelectedMenu } from './types';
+import { ISelectedMenu } from '../MenuItem/types';
 import { useTheme } from '@/hooks/useTheme';
 
 const Header = ({ selectedMenu }: { selectedMenu: ISelectedMenu }) => {

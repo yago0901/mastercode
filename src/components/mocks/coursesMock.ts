@@ -16,7 +16,7 @@ export interface ICourse {
   id: number;
   title: string;
   description: string;
-  rating: number; // 0 a 5
+  rating: number;
   type: CourseType;
   videos: IVideo[];
 }
