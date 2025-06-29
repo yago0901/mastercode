@@ -54,7 +54,7 @@ export default function CoursesPage() {
 
   return (
     <div className="h-full w-full text-[var(--text)] bg-[rgba(95,0,191,0.1)] p-4">
-      <div className="h-[90%]">
+      <div className="h-[85%]">
         <div className="w-full md:w-4/4 mb-6 flex justify-end items-center gap-4">
           <CourseTypeFilter
             value={selectedType}
@@ -72,7 +72,7 @@ export default function CoursesPage() {
           />
         </div>
 
-        <div className="grid grid-cols-12 gap-4 min-h-[300px] md:min-h-[400px] lg:min-h-[500px]">
+        <div className="grid grid-cols-12 gap-4 h-[90%] min-h-[300px] md:min-h-[400px] lg:min-h-[500px] overflow-auto">
           {paginatedCourses.map((course) => (
             <CourseCard
               key={course.id}
