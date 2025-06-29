@@ -73,8 +73,8 @@ export default function Page() {
 
       <div className="flex justify-end mt-4">
         <button
-          onClick={() => setIsAddModalOpen(true)}
-          className="bg-[var(--primary)] text-[var(--text-white)] px-4 py-2 rounded transition shadow-lg"
+          onClick={() => setIsAddModalOpen((prev) => !prev)}
+          className="bg-[var(--primary)] text-[var(--text-white)] px-4 py-2 rounded transition shadow-lg cursor-pointer"
         >
           Adicionar Vídeo
         </button>
