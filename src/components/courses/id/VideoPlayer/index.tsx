@@ -41,13 +41,9 @@ export default function VideoPlayer({ video }: { video: IVideo | null }) {
           onLoad={onLoad}
         />
       ) : (
-        <video
-          controls
-          autoPlay
-          src={video.url}
-          className="w-full max-h-[300px] sm:max-h-[400px] md:max-h-[500px] object-contain"
-          onLoadedData={onLoad}
-        />
+        <div className="w-full aspect-video bg-black rounded overflow-hidden">
+          <video controls autoPlay src={video.url} className="w-full h-full object-contain" onLoadedData={onLoad} />
+        </div>
       )}
     </div>
   );
