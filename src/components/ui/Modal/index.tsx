@@ -21,6 +21,8 @@ const Modal: React.FC<IModalProps> = ({ isOpen, onClose, children, className = "
     };
   }, [isOpen]);
 
+  if (typeof window === "undefined") return null;
+
   if (!isOpen) return null;
 
   return (
