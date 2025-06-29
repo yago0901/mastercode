@@ -12,7 +12,7 @@ export interface AsideProps {
   menu: {
     title: string;
     href: string;
-    icon: any;
+    icon: IconDefinition;
   }[];
   selectedMenu: ISelectedMenu;
   setSelectedMenu: (menu: ISelectedMenu) => void;
@@ -23,7 +23,7 @@ export interface AsideProps {
 export interface MenuItemProps {
   title: string;
   href: string;
-  icon: any;
+  icon: IconDefinition;
   selectedMenu: ISelectedMenu;
   setSelectedMenu: (menu: ISelectedMenu) => void;
   menuOpen: boolean;

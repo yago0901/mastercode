@@ -2,7 +2,6 @@ import { VideoListProps } from './tipes';
 
 export default function VideoList({
   videos,
-  selectedId,
   editingId,
   editTitle,
   editUrl,

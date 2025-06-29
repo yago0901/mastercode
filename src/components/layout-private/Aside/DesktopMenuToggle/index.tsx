@@ -1,4 +1,4 @@
-import { DesktopMenuToggleProps } from './tipes';
+import { DesktopMenuToggleProps } from './types';
 
 export const DesktopMenuToggle = ({ isOpen, toggle }: DesktopMenuToggleProps) => (
   <button
