@@ -1,4 +1,4 @@
-import { IVideo } from "@/components/mocks/coursesMock";
+import { IVideo } from '@/components/mocks/coursesMock/tipes';
 
 export const getVideoIdNumber = (id: string) =>
   parseInt(id.replace(/[^\d]/g, ""), 10);

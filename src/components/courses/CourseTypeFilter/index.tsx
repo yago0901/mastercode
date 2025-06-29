@@ -1,6 +1,6 @@
 "use client";
 
-import { CourseType } from "@/components/mocks/coursesMock";
+import { CourseType } from '@/components/mocks/coursesMock/tipes';
 import { CourseTypeFilterProps, types } from "./tipes";
 
 export default function CourseTypeFilter({

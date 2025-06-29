@@ -5,12 +5,7 @@ import {
   faAnglesRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-interface Props {
-  currentPage: number;
-  totalPages: number;
-  onChange: (page: number) => void;
-}
+import { Props } from './tipes';
 
 export default function Pagination({
   currentPage,

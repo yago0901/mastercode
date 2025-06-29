@@ -1,8 +1,20 @@
 import { useState, useEffect } from "react";
-import { coursesMock, IVideo } from "@/components/mocks/coursesMock";
-import { addVideo, deleteVideo, getVideoIdNumber, updateVideo } from '@/hooks/useVideoManager/util';
+import { addVideo, deleteVideo, getVideoIdNumber, updateVideo } from "./util";
+import { useQuery } from "@tanstack/react-query";
+import { getCourseVideos } from "@/services/api/courseVideosApi";
+import { IVideo } from "@/components/mocks/coursesMock/tipes";
+import { useRef } from "react";
 
 export function useVideosManager(courseId: number) {
+  const {
+    data = [],
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["videos", courseId],
+    queryFn: () => getCourseVideos(courseId),
+  });
+
   const [videos, setVideos] = useState<IVideo[]>([]);
   const [selectedVideo, setSelectedVideo] = useState<IVideo | null>(null);
   const [editingVideoId, setEditingVideoId] = useState<number | null>(null);
@@ -12,13 +24,15 @@ export function useVideosManager(courseId: number) {
   const [newVideoTitle, setNewVideoTitle] = useState("");
   const [newVideoUrl, setNewVideoUrl] = useState("");
 
+  const isInitialized = useRef(false);
+
   useEffect(() => {
-    const course = coursesMock.find((c) => c.id === courseId);
-    if (course) {
-      setVideos(course.videos);
-      setSelectedVideo(course.videos[0] ?? null);
+    if (!isInitialized.current && data.length > 0) {
+      setVideos(data);
+      setSelectedVideo(data[0] ?? null);
+      isInitialized.current = true;
     }
-  }, [courseId]);
+  }, [data]);
 
   const handleSelect = (video: IVideo) => {
     setSelectedVideo(video);
@@ -47,20 +61,17 @@ export function useVideosManager(courseId: number) {
 
   const handleSaveEdit = () => {
     if (editingVideoId === null) return;
-
     setVideos((prev) => updateVideo(prev, editingVideoId, editTitle, editUrl));
-
-    if (
-      selectedVideo &&
-      getVideoIdNumber(selectedVideo.id) === editingVideoId
-    ) {
+    if (selectedVideo && getVideoIdNumber(selectedVideo.id) === editingVideoId) {
       setSelectedVideo({ ...selectedVideo, name: editTitle, url: editUrl });
     }
-
     setEditingVideoId(null);
   };
 
   return {
+    isLoading,
+    isError,
+
     videos,
     selectedVideo,
     editingVideoId,

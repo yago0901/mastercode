@@ -1,5 +1,7 @@
-// components/VideoPlayer.tsx
-import { IVideo } from "@/components/mocks/coursesMock";
+"use client";
+
+import { IVideo } from "@/components/mocks/coursesMock/tipes";
+import { useState } from "react";
 
 export function extractYouTubeId(url: string): string {
   const match = url.match(/(?:youtube\.com\/.*v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
@@ -11,6 +13,8 @@ export function isYouTubeUrl(url: string) {
 }
 
 export default function VideoPlayer({ video }: { video: IVideo | null }) {
+  const [isLoading, setIsLoading] = useState(true);
+
   if (!video) {
     return (
       <div className="w-full h-full flex items-center justify-center">
@@ -18,20 +22,27 @@ export default function VideoPlayer({ video }: { video: IVideo | null }) {
       </div>
     );
   }
+  const onLoad = () => setIsLoading(false);
 
-  return isYouTubeUrl(video.url) ? (
-    <iframe
-      className="w-full h-full"
-      src={`https://www.youtube.com/embed/${extractYouTubeId(video.url)}?autoplay=1`}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
-  ) : (
-    <video
-      controls
-      autoPlay
-      src={video.url}
-      className="w-full h-full object-contain"
-    />
+  return (
+    <div className="w-full h-full relative">
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
+          <p className="text-white">Carregando vídeo...</p>
+        </div>
+      )}
+
+      {isYouTubeUrl(video.url) ? (
+        <iframe
+          className="w-full h-full"
+          src={`https://www.youtube.com/embed/${extractYouTubeId(video.url)}?autoplay=1`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          onLoad={onLoad}
+        />
+      ) : (
+        <video controls autoPlay src={video.url} className="w-full h-full object-contain" onLoadedData={onLoad} />
+      )}
+    </div>
   );
 }
