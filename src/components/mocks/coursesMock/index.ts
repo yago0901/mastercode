@@ -124,3 +124,7 @@ export const coursesMock: ICourse[] = [
     ],
   })),
 ];
+
+export type { ICourse } from './tipes';
+export type { CourseType } from './tipes';
+
