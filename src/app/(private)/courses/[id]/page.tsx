@@ -40,10 +40,10 @@ export default function Page() {
   }
 
   return (
-    <div className="p-6 mx-auto w-full h-[100%] flex flex-col-reverse bg-[rgba(95,0,191,0.1)]">
+    <div className="p-6 mx-auto w-full h-[100%] flex flex-col bg-[rgba(95,0,191,0.1)]">
       <h1 className="text-2xl font-bold mb-4 w-full text-[var(--text)]">Vídeos do Curso {courseId}</h1>
 
-      <div className="flex flex-col lg:flex-row gap-4 w-full flex-grow ">
+      <div className="flex flex-col-reverse lg:flex-row gap-4 w-full flex-grow ">
         <div className="w-full lg:w-3/5 flex flex-col bg-[linear-gradient(to_top_right,var(--secondary-rgba),var(--primary-rgba))] rounded shadow p-4 relative h-[90%] max-h-[395px] lg:max-h-[600px]">
           <h2 className="text-xl font-semibold mb-4 text-[var(--text)]">Lista de Vídeos</h2>
           {isLoading ? (
@@ -74,7 +74,7 @@ export default function Page() {
       <div className="flex justify-end">
         <button
           onClick={() => setIsAddModalOpen((prev) => !prev)}
-          className="bg-[var(--primary)] text-[var(--text-white)] px-4 py-2 rounded transition shadow-lg cursor-pointer"
+          className="bg-[var(--primary)] text-[var(--text-white)] px-4 py-2 rounded transition shadow-lg cursor-pointer mt-4"
         >
           Adicionar Vídeo
         </button>
