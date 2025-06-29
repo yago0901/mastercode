@@ -55,7 +55,7 @@ export default function CoursesPage() {
   return (
     <div className="h-full w-full text-[var(--text)] bg-[rgba(95,0,191,0.1)] p-4">
       <div className="h-[85%]">
-        <div className="w-full md:w-4/4 mb-6 flex justify-end items-center gap-4">
+        <div className="w-full md:w-4/4 mb-4 mt-6 md:mt-0 flex justify-end items-center gap-4">
           <CourseTypeFilter
             value={selectedType}
             onChange={(value) => {
